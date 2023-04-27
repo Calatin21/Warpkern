@@ -7,7 +7,7 @@
         public void InBetrieb() {
             Random rnd = new Random();
             int neueTemperatur;
-            WarpeventArgs Args;
+            WarpeventArgs Args = null;
             while (true) {
                 neueTemperatur = rnd.Next(0, 1001);
                 if (neueTemperatur != this.Temperatur) {
@@ -15,7 +15,7 @@
                     if (neueTemperatur > 500) {
                         this.EventtemperaturUeber(Args);
                     }
-                    if (neueTemperatur > 600) {
+                    if (neueTemperatur == 1000) {
                         this.EventKernschmelze(Args);
                     }
                     this.EventtemperaturAenderung(Args);
