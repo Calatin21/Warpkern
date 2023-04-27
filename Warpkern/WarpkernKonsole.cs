@@ -23,21 +23,22 @@
             bool blink = false;
             while (true) {
                 Console.Clear();
-                if (blink) {
+                //if (blink) {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
                     blink = false;
                     Thread.Sleep(100);
-                }
-                else {
-                    Console.BackgroundColor = ConsoleColor.Black;
+                //}
+                Console.Clear();
+                //else {
+                Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
                     blink = true;
                     Thread.Sleep(400);
 
-                }
+                //}
             }
         }
     }

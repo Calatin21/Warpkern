@@ -15,7 +15,7 @@
                     if (neueTemperatur > 500) {
                         this.EventtemperaturUeber(Args);
                     }
-                    if (neueTemperatur == 1000) {
+                    if (neueTemperatur > 600) {
                         this.EventKernschmelze(Args);
                     }
                     this.EventtemperaturAenderung(Args);
