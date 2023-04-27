@@ -2,7 +2,7 @@
     internal class WarpkernKonsole {
         public void Überhitzt(object source, WarpeventArgs e) {
             for (int i = 0; i < 2; i++) {
-               Console.Clear();
+                Console.Clear();
                 Console.WriteLine("Warpkern Temperatur über 500 Grad!");
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -23,22 +23,17 @@
             bool blink = false;
             while (true) {
                 Console.Clear();
-                //if (blink) {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
-                    blink = false;
-                    Thread.Sleep(100);
-                //}
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
+                blink = false;
+                Thread.Sleep(100);
                 Console.Clear();
-                //else {
                 Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
-                    blink = true;
-                    Thread.Sleep(400);
-
-                //}
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Totale Katastrophe der Warpkern ist geschmolzen und die Enterprise ist zerstört!");
+                blink = true;
+                Thread.Sleep(400);
             }
         }
     }
