@@ -1,23 +1,42 @@
 ﻿namespace Warpkern {
     internal class Warpkern {
-        public event EventHandler<WarpeventArgs> WarpEvent;
+        public event EventHandler<WarpeventArgs> WarpEventTAE;
+        public event EventHandler<WarpeventArgs> WarpEventTUE;
+        public event EventHandler<WarpeventArgs> WarpEventSCH;
         public int Temperatur { get; set; }
-        public int AlteTemperatur { get; set; }
         public void InBetrieb() {
             Random rnd = new Random();
-            while (this.Temperatur < 1000) {
-                this.AlteTemperatur = this.Temperatur;
-                this.Temperatur = rnd.Next(0, 1001);
-                if (this.Temperatur != this.AlteTemperatur) {
-                    this.Event();
+            int neueTemperatur;
+            WarpeventArgs Args;
+            while (true) {
+                neueTemperatur = rnd.Next(0, 1001);
+                if (neueTemperatur != this.Temperatur) {
+                    Args = (new WarpeventArgs() { AlteTemperatur = this.Temperatur, Temperatur = neueTemperatur, Zeit = DateTime.Now.ToLongTimeString() });
+                    if (neueTemperatur > 500) {
+                        this.EventtemperaturUeber(Args);
+                    }
+                    if (neueTemperatur == 1000) {
+                        this.EventKernschmelze(Args);
+                    }
+                    this.EventtemperaturAenderung(Args);
                 }
                 Thread.Sleep(1000);
+                this.Temperatur = neueTemperatur;
             }
         }
-        public void Event() {
-            if (WarpEvent != null) {
-                WarpEvent(this, new WarpeventArgs() { AlteTemperatur = this.AlteTemperatur, Temperatur = this.Temperatur, Zeit = DateTime.Now.ToLongTimeString() });
-
+        public void EventtemperaturAenderung(WarpeventArgs e) {
+            if (WarpEventTAE != null) {
+                WarpEventTAE(this, e);
+            }
+        }
+        public void EventtemperaturUeber(WarpeventArgs e) {
+            if (WarpEventTUE != null) {
+                WarpEventTUE(this, e);
+            }
+        }
+        public void EventKernschmelze(WarpeventArgs e) {
+            if (WarpEventSCH != null) {
+                WarpEventSCH(this, e);
             }
         }
 

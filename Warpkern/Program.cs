@@ -3,9 +3,9 @@
         static void Main(string[] args) {
             Warpkern ncc = new Warpkern();
             WarpkernKonsole konsole = new WarpkernKonsole();
-            ncc.WarpEvent += konsole.TemperaturVeraenderung;
-            ncc.WarpEvent += konsole.Überhitzt;
-            ncc.WarpEvent += konsole.Kernschmelze;
+            ncc.WarpEventTAE += konsole.TemperaturVeraenderung;
+            ncc.WarpEventTUE += konsole.Überhitzt;
+            ncc.WarpEventSCH += konsole.Kernschmelze;
             ncc.InBetrieb();
         }
     }
